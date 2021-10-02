@@ -17,9 +17,12 @@ public class Ball : MonoBehaviour
     public float C3;
     public float x;
     public bool isDribbling=true;
+    public Monke monke;
+
     void Start()
     {
         cam = FindObjectOfType<Camera>();
+        monke = FindObjectOfType<Monke>();
     }
 
     // Update is called once per frame
@@ -28,7 +31,8 @@ public class Ball : MonoBehaviour
         if (Input.anyKeyDown && isDribbling)
         {
             isDribbling = false;
-            Impulse();
+            //Impulse();
+            monke.startKick();
         }
         if (transform.position.y <= DribblePoint.position.y && isDribbling) Dribble();
         if (!isDribbling && ball.velocity.x < 0.01)
