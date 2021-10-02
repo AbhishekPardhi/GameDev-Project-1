@@ -33,12 +33,12 @@ public class Ball : MonoBehaviour
             Impulse();
         }
         if (transform.position.y <= DribblePoint.position.y && isDribbling) Dribble();
-        if (!isDribbling && ball.velocity.x < 0.01)
+        if (!isDribbling && ball.velocity.x < 0.01 && ball.velocity.x!=0)
         {
             ball.velocity = new Vector3(0, 0);
-            Vector2 pos = new Vector2(transform.position.x, -1.3f);
+            Vector2 pos = new Vector2(transform.position.x, 0f);
             sign.PlaceBoard(pos);
-            StartCoroutine(loadscene(6f));
+            StartCoroutine(loadscene(3f));
         }
         cam.transform.position = new Vector3(transform.position.x,cam.transform.position.y,-10);
     }
