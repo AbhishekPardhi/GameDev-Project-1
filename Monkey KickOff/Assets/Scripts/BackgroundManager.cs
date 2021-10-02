@@ -11,11 +11,6 @@ public class BackgroundManager : MonoBehaviour
     public GameObject bg3;
     public GameObject bg4;
     public GameObject bg5;
-    
-    public Sprite map1;
-    public Sprite map2;
-    public Sprite map3;
-    public Sprite map4;
 
     public Sprite forest;
     public Sprite desert;
@@ -48,19 +43,24 @@ public class BackgroundManager : MonoBehaviour
     void FixedUpdate()
     {
         relVel = ball.velocity.x/2;
-        foreach(GameObject bg in backgrounds)
-        {
+        foreach(GameObject bg in backgrounds) {
             bg.transform.position += Vector3.right * (ball.velocity.x - relVel) * Time.fixedDeltaTime;
         }
 
         if(cam.transform.position.x - backgrounds.Peek().transform.position.x > 5*offset/2) {
             GameObject temp = backgrounds.Dequeue();
-            if(cam.transform.position.x > 100)
+            if(cam.transform.position.x > 90) {
                 SetBg(temp, desert);
-            if(cam.transform.position.x > 200)
+                temp.transform.position = new Vector3(temp.transform.position.x, 1.05f, 0);
+            }
+            if(cam.transform.position.x > 180) {
                 SetBg(temp, city);
-            if(cam.transform.position.x > 300)
+                temp.transform.position = new Vector3(temp.transform.position.x, 0.71f, 0);
+            }
+            if(cam.transform.position.x > 270) {
                 SetBg(temp, space);
+                temp.transform.position = new Vector3(temp.transform.position.x, 1.09f, 0);
+            }
             temp.transform.position += new Vector3(4*offset, 0, 0);
             backgrounds.Enqueue(temp);
         }
