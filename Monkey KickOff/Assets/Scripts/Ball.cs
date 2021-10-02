@@ -18,11 +18,13 @@ public class Ball : MonoBehaviour
     public float x;
     public bool isDribbling=true;
     public Monke monke;
+    Sign sign;
 
     void Start()
     {
         cam = FindObjectOfType<Camera>();
         monke = FindObjectOfType<Monke>();
+        sign = FindObjectOfType<Sign>();
     }
 
     // Update is called once per frame
@@ -31,16 +33,19 @@ public class Ball : MonoBehaviour
         if (Input.anyKeyDown && isDribbling)
         {
             isDribbling = false;
-            //Impulse();
+            Impulse();
             monke.startKick();
         }
         if (transform.position.y <= DribblePoint.position.y && isDribbling) Dribble();
         if (!isDribbling && ball.velocity.x < 0.01)
         {
             ball.velocity = new Vector3(0, 0);
-            StartCoroutine(loadscene(2f));
+            Vector3 pos = new Vector3(transform.position.x,0f,2f);
+            sign.PlaceBoard(pos);
+            StartCoroutine(loadscene(3f));
         }
         cam.transform.position = new Vector3(transform.position.x,cam.transform.position.y,-10);
+        if (Input.GetKeyDown("Escape")) Application.Quit();
     }
     IEnumerator loadscene(float delay)
     {
