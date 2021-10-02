@@ -16,7 +16,7 @@ public class Sign : MonoBehaviour
         if (PlayerPrefs.GetInt("HighScore", 0) == 0) transform.position = new Vector2(-100, 0); // Initially out of sight
     }
     
-    public void PlaceBoard(Vector3 pos)
+    public void PlaceBoard(Vector2 pos)
     { //Place sign showing high score at the new ball position
         transform.position = pos;
         anim.SetBool("Newhighscore",true);

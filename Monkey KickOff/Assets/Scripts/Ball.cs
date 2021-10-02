@@ -17,9 +17,11 @@ public class Ball : MonoBehaviour
     public float C3;
     public float x;
     public bool isDribbling=true;
+    Sign sign;
     void Start()
     {
         cam = FindObjectOfType<Camera>();
+        sign = FindObjectOfType<Sign>();
     }
 
     // Update is called once per frame
@@ -34,7 +36,9 @@ public class Ball : MonoBehaviour
         if (!isDribbling && ball.velocity.x < 0.01)
         {
             ball.velocity = new Vector3(0, 0);
-            StartCoroutine(loadscene(2f));
+            Vector2 pos = new Vector2(transform.position.x, -1.3f);
+            sign.PlaceBoard(pos);
+            StartCoroutine(loadscene(6f));
         }
         cam.transform.position = new Vector3(transform.position.x,cam.transform.position.y,-10);
     }
