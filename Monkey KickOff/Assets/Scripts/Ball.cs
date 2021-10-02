@@ -36,7 +36,7 @@ public class Ball : MonoBehaviour
             ball.velocity = new Vector3(0, 0);
             StartCoroutine(loadscene(1f));
         }
-        cam.transform.position = new Vector3(transform.position.x,0,-10);
+        cam.transform.position = new Vector3(transform.position.x,cam.transform.position.y,-10);
     }
     IEnumerator loadscene(float delay)
     {
@@ -46,7 +46,9 @@ public class Ball : MonoBehaviour
     void Impulse()
     {
         h = (float)(ball.position.y - 0.6-Base.position.y);
-        ball.velocity = new Vector2(6+C0 * (C1 + ball.velocity.magnitude * C3 / Mathf.Sqrt(1 + h * h)), 2*(6+16*h+C0 * (C1 + ball.velocity.magnitude * C3) * h / Mathf.Sqrt(1 + h * h)));
+        float velX = 6+C0 * (C1 + ball.velocity.magnitude * C3/ Mathf.Sqrt(1 + h * h));
+        float velY = 2*(6+16*h+C0 * (C1 + ball.velocity.magnitude * C3 * signum(ball.velocity.y) * (-1)) * h / Mathf.Sqrt(1 + h * h));
+        ball.velocity = new Vector2(velX, velY);
     }
     void Dribble()
     {
@@ -56,5 +58,14 @@ public class Ball : MonoBehaviour
     void FindHeight()
     {
         height = Random.Range(3, 11) / 5;
+    }
+
+    int signum(float f) {
+        if(f < 0)
+            return -1;
+        else if(f > 0)
+            return 1;
+        else
+            return 0;
     }
 }
