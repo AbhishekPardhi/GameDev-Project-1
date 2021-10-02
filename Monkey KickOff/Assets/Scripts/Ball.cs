@@ -17,11 +17,12 @@ public class Ball : MonoBehaviour
     public float C3;
     public float x;
     public bool isDribbling=true;
-    Sign sign;
+    public Monke monke;
+
     void Start()
     {
         cam = FindObjectOfType<Camera>();
-        sign = FindObjectOfType<Sign>();
+        monke = FindObjectOfType<Monke>();
     }
 
     // Update is called once per frame
@@ -30,15 +31,14 @@ public class Ball : MonoBehaviour
         if (Input.anyKeyDown && isDribbling)
         {
             isDribbling = false;
-            Impulse();
+            //Impulse();
+            monke.startKick();
         }
         if (transform.position.y <= DribblePoint.position.y && isDribbling) Dribble();
-        if (!isDribbling && ball.velocity.x < 0.01 && ball.velocity.x!=0)
+        if (!isDribbling && ball.velocity.x < 0.01)
         {
             ball.velocity = new Vector3(0, 0);
-            Vector2 pos = new Vector2(transform.position.x, 0f);
-            sign.PlaceBoard(pos);
-            StartCoroutine(loadscene(3f));
+            StartCoroutine(loadscene(2f));
         }
         cam.transform.position = new Vector3(transform.position.x,cam.transform.position.y,-10);
     }
