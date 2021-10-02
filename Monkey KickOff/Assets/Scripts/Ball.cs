@@ -34,7 +34,7 @@ public class Ball : MonoBehaviour
         if (!isDribbling && ball.velocity.x < 0.01)
         {
             ball.velocity = new Vector3(0, 0);
-            StartCoroutine(loadscene(1f));
+            StartCoroutine(loadscene(2f));
         }
         cam.transform.position = new Vector3(transform.position.x,cam.transform.position.y,-10);
     }
