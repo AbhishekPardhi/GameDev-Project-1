@@ -503,7 +503,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &129081597
 Transform:
   m_ObjectHideFlags: 0
@@ -3697,10 +3697,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: d54323c94c164de478170d5e7d0273be, type: 3}
-    m_FontSize: 30
+    m_FontSize: 21
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 3
+    m_MinSize: 2
     m_MaxSize: 40
     m_Alignment: 1
     m_AlignByGeometry: 0
@@ -3711,10 +3711,23 @@ MonoBehaviour:
   m_Text: '<size=60>Hello!</size>
 
 
-    This is a modal window.
+    This is a prototype inspired from the game
+    Monkey Kickoff.
 
-    Press or touch
-    the outside area to close it.'
+    Contributors:
+
+    Abhishek Pardhi
+
+    Soham Samaddar
+
+    Abhishek
+    Mishra
+
+    Prakhar Pratap Mall
+
+    Ayush Gupta
+
+'
 --- !u!222 &1200330320
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4440,7 +4453,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1354244891
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4711,7 +4724,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1395134418
 Transform:
   m_ObjectHideFlags: 0
@@ -4906,7 +4919,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 180, y: -61.20006}
+  m_AnchoredPosition: {x: 189.45, y: -61.20006}
   m_SizeDelta: {x: 400, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1450512769
