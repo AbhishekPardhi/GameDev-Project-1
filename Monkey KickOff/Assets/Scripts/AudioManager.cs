@@ -15,7 +15,7 @@ public class AudioManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (ball.position.y < -0.3) Bounce.Play();
         if (b.isDribbling && ball.position.y<0.01 && !Bounce.isPlaying) Bounce.Play();

@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Collections.Generic;
 
 public class BackgroundManager : MonoBehaviour
 {
@@ -51,15 +50,15 @@ public class BackgroundManager : MonoBehaviour
             GameObject temp = backgrounds.Dequeue();
             if(cam.transform.position.x > 90) {
                 SetBg(temp, desert);
-                temp.transform.position = new Vector3(temp.transform.position.x, 1.05f, 0);
+                temp.transform.position = new Vector3(temp.transform.position.x, 1.90f, 2);
             }
             if(cam.transform.position.x > 180) {
                 SetBg(temp, city);
-                temp.transform.position = new Vector3(temp.transform.position.x, 0.71f, 0);
+                temp.transform.position = new Vector3(temp.transform.position.x, 1.56f, 2);
             }
             if(cam.transform.position.x > 270) {
                 SetBg(temp, space);
-                temp.transform.position = new Vector3(temp.transform.position.x, 1.09f, 0);
+                temp.transform.position = new Vector3(temp.transform.position.x, 1.92f, 2);
             }
             temp.transform.position += new Vector3(4*offset, 0, 0);
             backgrounds.Enqueue(temp);
