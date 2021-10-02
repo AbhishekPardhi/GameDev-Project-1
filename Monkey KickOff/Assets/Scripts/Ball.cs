@@ -36,7 +36,7 @@ public class Ball : MonoBehaviour
             ball.velocity = new Vector3(0, 0);
             StartCoroutine(loadscene(1f));
         }
-        cam.transform.position = new Vector3(transform.position.x,cam.transform.position.y,-10);
+        cam.transform.position = new Vector3(transform.position.x,0,-10);
     }
     IEnumerator loadscene(float delay)
     {
